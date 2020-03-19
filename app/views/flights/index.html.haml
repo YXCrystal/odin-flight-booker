@@ -4,7 +4,7 @@
         = f.select(:to_airport_id, @unique_airport, :selected => params[:flight][:to_airport_id])
         = f.select(:from_airport_id, @unique_airport, :selected => params[:flight][:from_airport_id])
         = f.select(:start, @order_flights << "Any Date", :selected => params[:flight][:start])
-        -# = f.select :passengers, [[1, 1], [2, 2], [3, 3], [4, 4]], :selected => params[:flight][:passengers]
+        = f.select :passengers, [["1 Adult", 1], ["2 Adults", 2], ["3 Adults", 3], ["4 Adults", 4]], :selected => params[:flight][:passengers]
     - else 
         = f.select(:to_airport_id, @unique_airport)
         = f.select(:from_airport_id, @unique_airport)
