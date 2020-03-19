@@ -4,7 +4,7 @@
         = f.select(:to_airport_id, @unique_airport, :selected => params[:flight][:to_airport_id])
         = f.select(:from_airport_id, @unique_airport, :selected => params[:flight][:from_airport_id])
         = f.select(:start, @order_flights << "Any Date", :selected => params[:flight][:start])
-        = f.select :passengers, [["1 Adult", 1], ["2 Adults", 2], ["3 Adults", 3], ["4 Adults", 4]], :selected => params[:flight][:passengers]
+        = f.select(:adults, [["1 Adult", 1], ["2 Adults", 2], ["3 Adults", 3], ["4 Adults", 4]], :selected => params[:flight][:adults])
     - else 
         = f.select(:to_airport_id, @unique_airport)
         = f.select(:from_airport_id, @unique_airport)
@@ -23,4 +23,4 @@
         %p Flight: #{@to_airport.code} to #{@from_airport.code} 
         %p Date: #{flight.start.strftime("%b %d %Y at %H:%M %p")}
         %p Duration: #{flight.duration.strftime("%H:%M")} hours 
-        =link_to "Book now"
+        =link_to "Book now", new_flight_booking_path(flight.id)

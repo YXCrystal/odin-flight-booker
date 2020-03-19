@@ -1,0 +1,7 @@
+%h1 Booking flight
+%hr
+%p Flight: #{airport(@flight.to_airport)} to #{airport(@flight.from_airport)}
+%p Date: #{@flight.start.strftime("%b %d %Y at %H:%M %p")}
+%p Duration: #{@flight.duration.strftime("%H:%M")} hours 
+
+= form_for(@booking)
