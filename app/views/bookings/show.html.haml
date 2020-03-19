@@ -1,0 +1,9 @@
+%h1 Thank you, #{@passenger.name}! Your flight has now been booked
+%hr
+%h2 Flight details:
+%p Name: #{@passenger.name}
+%p Email: #{@passenger.email}
+%p Flight: #{airport(@flight.to_airport)} to #{airport(@flight.from_airport)}
+%p Date: #{@flight.start.strftime("%b %d %Y at %H:%M %p")}
+%p Duration: #{@flight.duration.strftime("%H:%M")} hours 
+=link_to "<< Back", flights_path
