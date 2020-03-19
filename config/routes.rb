@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-resources :flights do 
-  put :booking, on: :member
+resources :flights,only: [:index] do 
+  resources :bookings, only: [:new, :create]
 end
 
 root to: "flights#index"
