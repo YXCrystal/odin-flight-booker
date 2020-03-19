@@ -1,24 +1,8 @@
-# README
+# ODINFLIGHTBOOKER
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This app allows passengers to search up Canadian flights and book them. 
 
-Things you may want to cover:
+Purpose: Practice associations between models and advanced forms
 
-* Ruby version
+From the Odin's Project [curriculum](https://www.theodinproject.com/lessons/building-advanced-forms)
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
