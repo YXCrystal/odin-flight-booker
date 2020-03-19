@@ -1,0 +1,6 @@
+%h1 Odin Flight Booker
+
+= form_for(@flight) do |f|
+    = f.select(:to_airport_id, @airport_options)
+    = f.select(:from_airport_id, @airport_options)
+    = f.select(:start, @order_flights)
