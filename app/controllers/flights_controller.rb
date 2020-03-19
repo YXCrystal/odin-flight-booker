@@ -1,7 +1,8 @@
 class FlightsController < ApplicationController
     def index
-       @flight = Flight.new
-
+        @flight = Flight.new
+        @booking = Booking.new 
+        
         airport_options = Airport.all.map {|a| a.code}
         @unique_airport = airport_options.uniq
 
@@ -24,5 +25,6 @@ class FlightsController < ApplicationController
     end
 
     def create
+        
     end
 end
