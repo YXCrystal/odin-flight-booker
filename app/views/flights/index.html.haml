@@ -1,18 +1,18 @@
-%h1 Odin Flight Booker
-
+%h1{:class => 'heading'} Odin Flight Booker
+%hr
 = render 'form'
+%hr
 
 - if !@flights.nil?
     -if @flights.length == 0 
-        %h1 Sorry, there are no flights available
+        %h2 Sorry, there are no flights available
     - elsif @flights.length == 1
-        %h1 There is 1 flight available
+        %h2 There is 1 flight available
     - else
-        %h1 There are #{@flights.length} flights available
-    %hr
+        %h2 There are #{@flights.length} flights available
     - @flights.each do |flight|
         %p Flight: #{@to_airport.code} to #{@from_airport.code} 
         %p Date: #{flight.start.strftime("%b %d %Y at %H:%M %p")}
         %p Duration: #{flight.duration.strftime("%H:%M")} hours
-        = @seats
-        =link_to "Book now", new_flight_booking_path(flight.id, @booking.id, seats: @seats)
+        %p Passengers: #{@seats}
+        =link_to "Book now", new_flight_booking_path(flight.id, @booking.id, seats: @seats), class: 'btn btn-primary'

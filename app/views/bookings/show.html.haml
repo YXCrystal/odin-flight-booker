@@ -1,13 +1,14 @@
-%h1 Thank you, #{@passengers[0].name}! Your flight has now been booked
+%h1 Thank you, #{@passengers[0].name}! 
+%h1 Your flight has now been booked
 %hr
 %h2 Flight details:
 %p Flight: #{airport(@flight.to_airport)} to #{airport(@flight.from_airport)}
 %p Date: #{@flight.start.strftime("%b %d %Y at %H:%M %p")}
 %p Duration: #{@flight.duration.strftime("%H:%M")} hours 
-
+%hr
 %h2 Passenger details:
 - @passengers.each do |passenger|
     %p Name: #{passenger.name}
     %p Email: #{passenger.email}
 
-=link_to "<< Back", flights_path
+=link_to "Back", flights_path, class: 'btn btn-primary'

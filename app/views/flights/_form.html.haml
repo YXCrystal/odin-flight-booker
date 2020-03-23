@@ -1,16 +1,33 @@
 = form_for(@flight, method: :get) do |f|
-    - if params[:flight]
+    .search
+        %table
+            %thead 
+                %th From
+                %th To
+                %th Date
+                %th Seats
 
-        = f.select(:to_airport_id, @unique_airport, :selected => @flight_info[:to_airport_id])
-        = f.select(:from_airport_id, @unique_airport, :selected => @flight_info[:from_airport_id])
-        = f.select(:start, @order_flights << "Any Date", :selected => @flight_info[:start])
-        =f.fields_for @booking do |b|
-            = b.select(:seats, [["1 Adult", 1], ["2 Adults", 2], ["3 Adults", 3], ["4 Adults", 4]], :selected => @seats)
-    - else 
-        = f.select(:to_airport_id, @unique_airport)
-        = f.select(:from_airport_id, @unique_airport)
-        = f.select(:start, @order_flights << "Any Date")
-        =f.fields_for @booking do |b|
-            = b.select(:seats, [["1 Adult", 1], ["2 Adults", 2], ["3 Adults", 3], ["4 Adults", 4]])
+            %tbody
+            - if params[:flight]
+                %td 
+                    = f.select(:to_airport_id, @unique_airport, :selected => @flight_info[:to_airport_id])
+                %td
+                    = f.select(:from_airport_id, @unique_airport, :selected => @flight_info[:from_airport_id])
+                %td
+                    = f.select(:start, @order_flights << "Any Date", :selected => @flight_info[:start])
+                %td
+                    =f.fields_for @booking do |b|
+                        = b.select(:seats, [1, 2, 3, 4], :selected => @seats)
+            - else 
+                %td 
+                    = f.select(:to_airport_id, @unique_airport)
+                %td
+                    = f.select(:from_airport_id, @unique_airport)
+                %td
+                    = f.select(:start, @order_flights << "Any Date")
+                %td
+                    =f.fields_for @booking do |b|
+                        = b.select(:seats, [1, 2, 3, 4])
+            %td 
+                = f.submit "Search", class: 'btn btn-primary btn-sm'
 
-    = f.submit "Search"

@@ -12,6 +12,19 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+      <a class="navbar-brand" href="/">Odin Flight Booker</a>
+    </nav>
+
+    <% flash.each do |type, msg| %>
+      <div>
+        <%= msg %>
+      </div>
+    <% end %>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+    
   </body>
 </html>

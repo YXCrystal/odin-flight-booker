@@ -1,10 +1,11 @@
 =form_for([@flight, @booking]) do |f|
+    - i = 0
     =f.hidden_field :flight_id, value: @flight.id
     =f.fields_for :passengers, @passenger do |p|
         .form-group
-            %p=p.label :name
-            =p.text_field :name, class: "form-control"
+            %p=p.label "Passenger # #{i+=1}: "
+            =p.text_field :name, placeholder: "Name", class: "form-control", required: true
         .form-group
             =p.label :email
-            =p.text_field :email, class: "form-control"
-    =f.submit "Book Now"
+            =p.text_field :email, placeholder: "Email Address", class: "form-control", required: true
+    =f.submit "Book Now", class: 'btn btn-primary'
