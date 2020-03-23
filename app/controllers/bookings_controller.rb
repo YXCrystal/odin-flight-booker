@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
         if @booking.save 
             redirect_to flight_booking_path(@flight.id, @booking.id)
         else 
+            flash.now[:error] = "Unable to book. Please try again"
             render 'new'
         end
     end
@@ -20,7 +21,6 @@ class BookingsController < ApplicationController
         @flight = Flight.find_by(id: params[:flight_id])
         @booking = Booking.find_by(id: params[:id])
         @passengers = @booking.passengers
-        # @passenger = Passenger.find_by(booking_id: @booking.id)
     end 
 
     private
