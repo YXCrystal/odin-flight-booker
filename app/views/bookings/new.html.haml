@@ -3,13 +3,7 @@
 %p Flight: #{airport(@flight.to_airport)} to #{airport(@flight.from_airport)}
 %p Date: #{@flight.start.strftime("%b %d %Y at %H:%M %p")}
 %p Duration: #{@flight.duration.strftime("%H:%M")} hours 
+%hr
 
-=form_for([@flight, @booking]) do |f|
-    =f.hidden_field :flight_id, value: @flight.id
-    =f.fields_for :passengers, @passenger do |p|
-        %p=p.label :name
-        =p.text_field :name
-        %p=p.label :email
-        =p.text_field :email
-        %p=p.submit "Book Now"
-        %p #{@booking.seats}
+
+= render 'form'
